@@ -1,0 +1,12 @@
+{
+  "name": "prochat-server",
+  "version": "1.0.0",
+  "main": "main.js",
+  "license": "MIT",
+  "scripts": {
+    "start": "node main.js"
+  },
+  "dependencies": {
+    "graphql-yoga": "^1.18.3"
+  }
+}
