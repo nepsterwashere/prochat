@@ -1,8 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
 import * as serviceWorker from './serviceWorker';
+import './index.scss';
+
+const App = () => (
+  <div>Hello ProChat-App</div>
+)
 
 ReactDOM.render(
   <React.StrictMode>
