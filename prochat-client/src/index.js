@@ -2,14 +2,19 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import * as serviceWorker from './serviceWorker';
 import './index.scss';
+import { ApolloClient, InMemoryCache, ApolloProvider } from '@apollo/client';
+import { Chat } from './container/chat/chat';
 
-const App = () => (
-  <div>Hello ProChat-App</div>
-)
+const client = new ApolloClient({
+  uri: 'http://localhost:4000/',
+  cache: new InMemoryCache()
+});
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <ApolloProvider client={client}>
+      <Chat />
+    </ApolloProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );

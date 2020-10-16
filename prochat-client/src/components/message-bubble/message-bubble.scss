@@ -1,0 +1,16 @@
+.message-bubble {
+  &__bubble {
+    border-radius: .5rem;
+    background-color: rgb(34, 122, 255);
+    padding: 8px 16px;
+    width: 200px;
+  }
+
+  &__username {
+    padding: 8px 0 4px 8px;
+  }
+
+  &__message {
+    color: white;
+  }
+}
