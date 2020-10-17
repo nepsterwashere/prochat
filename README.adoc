@@ -1,1 +1,12 @@
-== Provinzial Livestream Chat App
+= Provinzial Livestream Chat App
+
+== Ressources:
+
+=== UI Library
+link:https://material-ui.com/
+
+=== Graphql Client Library
+link:https://www.apollographql.com/docs/react/
+
+=== Graphql Server Library
+https://github.com/prisma-labs/graphql-yoga
