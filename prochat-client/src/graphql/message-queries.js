@@ -15,3 +15,13 @@ export const POST_MESSAGE = gql`
     postMessage(user: $user, content: $content)
   }
 `
+
+export const MESSAGE_SUBSCRIPTION = gql`
+  subscription {
+    messages {
+      id
+      user
+      content
+    }
+  }
+`

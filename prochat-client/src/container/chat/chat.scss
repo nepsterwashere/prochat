@@ -1,0 +1,8 @@
+.chat {
+  border: 1px solid black;
+
+  &__messages {
+    padding: 8px 16px;
+    height:  calc(100% - 64px);
+  }
+}

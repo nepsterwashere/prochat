@@ -1,12 +1,13 @@
 import React from 'react'
-import { useQuery, useMutation } from '@apollo/client'
+import { useSubscription, useMutation } from '@apollo/client'
 import { MessageBubble } from '../../components/message-bubble/message-bubble'
 import { MessageInput } from '../../components/message-input/message-input'
 import Container from '@material-ui/core/Container'
-import { GET_MESSAGES, POST_MESSAGE } from '../../graphql/message-queries'
+import { MESSAGE_SUBSCRIPTION, POST_MESSAGE } from '../../graphql/message-queries'
+import './chat.scss'
 
 export function Chat() {
-  const { data } = useQuery(GET_MESSAGES)
+  const { data } = useSubscription(MESSAGE_SUBSCRIPTION)
   const [postMessage] = useMutation(POST_MESSAGE)
 
   const submitMessage = (message) => {
@@ -17,10 +18,14 @@ export function Chat() {
 
   return (
     <Container>
-      { data && (data.messages || []).map(({ user, content }) => (
-        <MessageBubble user={user} message={content} />
-      ))}
-      <MessageInput postMessage={(message) => submitMessage(message)} />
+      <div className="chat">
+        <div className="chat__messages">
+          {data && data.messages.map(({ user, content }) => (
+            <MessageBubble user={user} message={content} />
+          ))}
+        </div>
+        <MessageInput postMessage={(message) => submitMessage(message)} />
+      </div>
     </Container>
   )
 }
