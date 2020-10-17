@@ -1,24 +1,9 @@
 import React from 'react'
-import { useQuery, useMutation, gql } from '@apollo/client'
+import { useQuery, useMutation } from '@apollo/client'
 import { MessageBubble } from '../../components/message-bubble/message-bubble'
 import { MessageInput } from '../../components/message-input/message-input'
 import Container from '@material-ui/core/Container'
-
-const GET_MESSAGES = gql`
-  query {
-    messages {
-      id
-      user
-      content
-    }
-  }
-`
-
-const POST_MESSAGE = gql`
-  mutation($user: String!, $content: String!) {
-    postMessage(user: $user, content: $content)
-  }
-`
+import { GET_MESSAGES, POST_MESSAGE } from '../../graphql/message-queries'
 
 export function Chat() {
   const { data } = useQuery(GET_MESSAGES)
