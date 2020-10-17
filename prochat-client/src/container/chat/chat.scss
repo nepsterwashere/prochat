@@ -1,8 +1,23 @@
 .chat {
-  border: 1px solid black;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  border: 1px solid lightgray;
 
   &__messages {
-    padding: 8px 16px;
+    padding: 8px 16px 32px;
     height:  calc(100% - 64px);
   }
+
+  &__message {
+    &-right {
+      display: flex;
+      justify-content: flex-end;
+    }
+  }
+}
+
+.container {
+  height: 100%;
 }

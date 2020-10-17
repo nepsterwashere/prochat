@@ -16,12 +16,16 @@ export function Chat() {
     })
   }
 
+  const userName = "Jan"
+
   return (
-    <Container>
+    <Container className="container">
       <div className="chat">
         <div className="chat__messages">
           {data && data.messages.map(({ user, content }) => (
-            <MessageBubble user={user} message={content} />
+            <div className={`chat__message-${user === userName ? 'right' : 'left'}`}>
+              <MessageBubble user={user} message={content} isUser={user === userName} />
+            </div>
           ))}
         </div>
         <MessageInput postMessage={(message) => submitMessage(message)} />

@@ -23,22 +23,25 @@ export function MessageInput({ postMessage }) {
   return (
     <form onSubmit={(e) => handleSubmit(e)} class="message-input">
       <Grid container spacing={2}>
-        <Grid item xs="4">
+        <Grid item xs="2">
           <TextField label="Name"
             value={message.user}
             onInput={(e) => setMessage({ ...message, user: e.target.value })}
+            fullWidth
           />
         </Grid>
-        <Grid item xs="4">
+        <Grid item xs="8">
           <TextField label="Nachricht"
             value={message.content}
             onInput={(e) => setMessage({ ...message, content: e.target.value })}
+            fullWidth
           />
         </Grid>
-        <Grid item xs="4">
+        <Grid item xs="2">
           <Button type="submit"
             variant="contained"
             color="primary"
+            fullWidth
           >
             Senden
           </Button>

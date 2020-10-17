@@ -1,13 +1,13 @@
 import React from 'react'
 import './message-bubble.scss'
 
-export function MessageBubble({ user, message }) {
+export function MessageBubble({ user, message, isUser }) {
   return (
-    <React.Fragment>
-      <div class="message-bubble__username">{user}</div>
-      <div class="message-bubble__bubble">
+    <div className="message-bubble">
+      <div class="message-bubble__username">{isUser ? 'Ich' : user}</div>
+      <div class={`message-bubble__bubble-${isUser ? 'right' : 'left'}`}>
         <div class="message-bubble__message">{message}</div>
       </div>
-    </React.Fragment>
+    </div>
   )
 }
