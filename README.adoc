@@ -1,12 +1,18 @@
-= Provinzial Livestream Chat App
+= Provinzial Livestream Chat Client & Server Monorepo
 
-== Ressources:
+== Ressources
 
 === UI Library
-link:https://material-ui.com/
+https://material-ui.com/
 
 === Graphql Client Library
-link:https://www.apollographql.com/docs/react/
+https://www.apollographql.com/docs/react/
 
 === Graphql Server Library
 https://github.com/prisma-labs/graphql-yoga
+
+== Tech Stack
+
+* React (Client)
+* Node (Server)
+* MongoDB (Database)
