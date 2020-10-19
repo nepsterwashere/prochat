@@ -5,9 +5,11 @@ import { MessageInput } from '../../components/message-input/message-input'
 import Container from '@material-ui/core/Container'
 import { MESSAGE_SUBSCRIPTION, POST_MESSAGE } from '../../graphql/message-queries'
 import './chat.scss'
+import { useUser } from '../../hooks/user'
 
 export function Chat() {
   const { data } = useSubscription(MESSAGE_SUBSCRIPTION)
+  const userName = useUser()
   const [postMessage] = useMutation(POST_MESSAGE)
 
   const submitMessage = (message) => {
@@ -16,15 +18,13 @@ export function Chat() {
     })
   }
 
-  const userName = "Jan"
-
   return (
     <Container className="container">
       <div className="chat">
         <div className="chat__messages">
           {data && data.messages.map(({ user, content }) => (
-            <div className={`chat__message-${user === userName ? 'right' : 'left'}`}>
-              <MessageBubble user={user} message={content} isUser={user === userName} />
+            <div className={`chat__message-${user === userName.name ? 'right' : 'left'}`}>
+              <MessageBubble user={user} message={content} isUser={user === userName.name} />
             </div>
           ))}
         </div>

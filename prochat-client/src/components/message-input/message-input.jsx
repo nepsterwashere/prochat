@@ -1,50 +1,41 @@
 import React from 'react'
 import TextField from '@material-ui/core/TextField'
-import Button from '@material-ui/core/Button'
+import IconButton from '@material-ui/core/IconButton';
+import SendIcon from '@material-ui/icons/Send';
 import Grid from '@material-ui/core/Grid'
 import { useState } from 'react'
 import './message-input.scss'
 
 export function MessageInput({ postMessage }) {
   const [message, setMessage] = useState({
-    user: '',
+    user: 'Jan',
     content: ''
   })
 
   const handleSubmit = (e) => {
-    postMessage(message)
-    setMessage({
-      user: '',
-      content: ''
-    })
+    if (message.user && message.content) {
+      postMessage(message)
+      setMessage({
+        content: ''
+      })
+    }
     e.preventDefault()
   }
 
   return (
     <form onSubmit={(e) => handleSubmit(e)} class="message-input">
       <Grid container spacing={2}>
-        <Grid item xs="2">
-          <TextField label="Name"
-            value={message.user}
-            onInput={(e) => setMessage({ ...message, user: e.target.value })}
-            fullWidth
-          />
-        </Grid>
-        <Grid item xs="8">
+        <Grid item xs="11">
           <TextField label="Nachricht"
             value={message.content}
             onInput={(e) => setMessage({ ...message, content: e.target.value })}
             fullWidth
           />
         </Grid>
-        <Grid item xs="2">
-          <Button type="submit"
-            variant="contained"
-            color="primary"
-            fullWidth
-          >
-            Senden
-          </Button>
+        <Grid item xs="1">
+          <IconButton type="submit" aria-label="send">
+            <SendIcon />
+          </IconButton>
         </Grid>
       </Grid>
     </form>
