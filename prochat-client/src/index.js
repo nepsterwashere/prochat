@@ -7,7 +7,7 @@ import { WebSocketLink } from '@apollo/client/link/ws';
 import './index.scss';
 
 const wsLink = new WebSocketLink({
-  uri: `ws://localhost:4000/`,
+  uri: process.env.REACT_APP_GRAPHQL_WS_URL,
   options: {
     reconnect: true
   }
@@ -15,7 +15,7 @@ const wsLink = new WebSocketLink({
 
 const client = new ApolloClient({
   link: wsLink,
-  uri: 'http://localhost:4000/',
+  uri: process.env.REACT_APP_GRAPHQL_URL,
   cache: new InMemoryCache()
 });
 

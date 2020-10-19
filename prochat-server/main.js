@@ -36,7 +36,8 @@ const resolvers = {
       messages.push({
         id,
         user,
-        content
+        content,
+        date: new Date()
       })
 
       subscribers.forEach(fn => fn())

@@ -1,0 +1,14 @@
+.chat-footer {
+  padding: 16px 8px 8px;
+  background-color: #00616C;
+
+  &__avatar-username {
+    font-weight: 700;
+    color: white;
+  }
+
+  &__avatar-userid{
+    padding-left: 4px;
+    color: rgba(255,255,255, 0.7);
+  }
+}
