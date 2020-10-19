@@ -1,4 +1,11 @@
+const mongoose = require("mongoose")
+const { Schema } = mongoose
+
 const messageSchema = new Schema({
+  fullname: {
+    type: String,
+    required: true
+  },
   userId: {
     type: String,
     required: true
@@ -13,4 +20,8 @@ const messageSchema = new Schema({
   }
 })
 
-export const MessageModel = mongoose.model('Message', messageSchema)
+const Message = mongoose.model('Message', messageSchema)
+
+module.exports = {
+  Message
+}

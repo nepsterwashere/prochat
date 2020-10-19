@@ -1,5 +1,9 @@
-import mongoose from 'mongoose'
+const mongoose = require('mongoose')
 
-export const connect = async () => {
-  mongoose.connect(process.env.DATABASE_URL, { useNewUrlParser: true, useUnifiedTopology: true })
+const connect = async () => {
+  mongoose.connect("mongodb://127.0.0.1:27017/", { useNewUrlParser: true, useUnifiedTopology: true })
+}
+
+module.exports = {
+  connect
 }
