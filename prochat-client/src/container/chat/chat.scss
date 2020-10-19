@@ -6,6 +6,7 @@
 
   &__messages {
     height:  calc(100% - 64px);
+    overflow-y: scroll;
   }
 
   &__message {
