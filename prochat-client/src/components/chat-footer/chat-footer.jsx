@@ -14,7 +14,8 @@ export function ChatFooter({ user, postMessage }) {
     e.preventDefault()
     if (user.fullname && message) {
       postMessage({
-        user: user.fullname,
+        userId: user.userId,
+        fullname: user.fullname,
         content: message
       })
       setMessage('')

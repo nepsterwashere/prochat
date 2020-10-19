@@ -22,8 +22,8 @@ export function Chat() {
     <div className="chat">
       <ChatHeader />
       <div className="chat__messages">
-        {data && data.messages.map(({ user, content }) => (
-          <ChatMessage user={user} message={content} isOwn={ctxUser.fullname === user} />
+        {data && data.messages.map(({ userId, fullname, content }) => (
+          <ChatMessage fullname={fullname} content={content} isOwn={ctxUser.userId === userId} />
         ))}
       </div>
       <ChatFooter user={ctxUser} postMessage={(message) => submitMessage(message)} />
