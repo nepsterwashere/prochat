@@ -56,6 +56,10 @@ const resolvers = {
           const messages = findAllMessages()
           pubsub.publish(channel, { messages })
         })
+        setTimeout(() => {
+          const messages = findAllMessages()
+          pubsub.publish(channel, { messages })
+        }, 0)
         return pubsub.asyncIterator(channel)
       }
     }
