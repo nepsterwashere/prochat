@@ -2,7 +2,7 @@ const { GraphQLServer, PubSub } = require('graphql-yoga')
 const { connect } = require('./src/database/mongodb')
 const { Message } = require('./src/database/schemas/message.schema')
 const { findAllMessages } = require('./src/services/message.service')
-
+require('dotenv').config()
 
 const typeDefs = `
   type Message {
