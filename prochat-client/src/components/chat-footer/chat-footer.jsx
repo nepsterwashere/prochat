@@ -7,40 +7,38 @@ import Grid from '@material-ui/core/Grid'
 import { useState } from 'react'
 import './chat-footer.scss'
 
-export function ChatFooter({ postMessage }) {
-  const [message, setMessage] = useState({
-    user: 'Jan',
-    content: ''
-  })
+export function ChatFooter({ user, postMessage }) {
+  const [message, setMessage] = useState('')
 
   const handleSubmit = (e) => {
-    if (message.user && message.content) {
-      postMessage(message)
-      setMessage({
-        content: ''
-      })
-    }
     e.preventDefault()
+    if (user.fullname && message) {
+      postMessage({
+        user: user.fullname,
+        content: message
+      })
+      setMessage('')
+    }
   }
 
   return (
     <form onSubmit={(e) => handleSubmit(e)} class="chat-footer">
       <Grid container alignItems="center" spacing={2}>
         <Grid item>
-          <Avatar>JV</Avatar>
+          <Avatar>{user.fullname ? user.fullname.substr(0, 2) : 'error'}</Avatar>
         </Grid>
         <Grid item>
           <span className="chat-footer__avatar-username">
-            Jan Völker
+            {user.fullname}
           </span>
           <span className="chat-footer__avatar-userid">
-            (PD07822)
+            ({user.userId})
           </span>
         </Grid>
       </Grid>
       <TextField label="Nachricht"
-        value={message.content}
-        onInput={(e) => setMessage({ ...message, content: e.target.value })}
+        value={message}
+        onInput={(e) => setMessage(e.target.value)}
         fullWidth
       />
       <Grid container justify="flex-end" spacing={2}>

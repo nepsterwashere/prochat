@@ -8,7 +8,7 @@ export const useUser = () => {
 
   useEffect(() => {
     // TODO: Fetch user from http endpoint
-    setUser({ name: "Jan" })
+    setUser({ userId: "pd07822", fullname: "Robin Grahl" })
   }, [])
 
   return user

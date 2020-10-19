@@ -1,16 +1,15 @@
 import React from 'react'
 import { useSubscription, useMutation } from '@apollo/client'
-import { MessageBubble } from '../../components/message-bubble/message-bubble'
+import { ChatMessage } from '../../components/chat-message/chat-message'
 import { ChatFooter } from '../../components/chat-footer/chat-footer'
-import Container from '@material-ui/core/Container'
 import { MESSAGE_SUBSCRIPTION, POST_MESSAGE } from '../../graphql/message-queries'
-import './chat.scss'
 import { useUser } from '../../hooks/user'
 import { ChatHeader } from '../../components/chat-header/chat-header'
+import './chat.scss'
 
 export function Chat() {
   const { data } = useSubscription(MESSAGE_SUBSCRIPTION)
-  const userName = useUser()
+  const ctxUser = useUser()
   const [postMessage] = useMutation(POST_MESSAGE)
 
   const submitMessage = (message) => {
@@ -24,12 +23,10 @@ export function Chat() {
       <ChatHeader />
       <div className="chat__messages">
         {data && data.messages.map(({ user, content }) => (
-          <div className={`chat__message-${user === userName.name ? 'right' : 'left'}`}>
-            <MessageBubble user={user} message={content} isUser={user === userName.name} />
-          </div>
+          <ChatMessage user={user} message={content} isOwn={ctxUser.fullname === user} />
         ))}
       </div>
-      <ChatFooter postMessage={(message) => submitMessage(message)} />
+      <ChatFooter user={ctxUser} postMessage={(message) => submitMessage(message)} />
     </div>
   )
 }
