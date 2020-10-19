@@ -1,4 +1,4 @@
-= Provinzial Livestream Chat Client & Server Monorepo
+= ProChat Client & Server Monorepo
 
 == Ressources
 
@@ -10,6 +10,9 @@ https://www.apollographql.com/docs/react/
 
 === Graphql Server Library
 https://github.com/prisma-labs/graphql-yoga
+
+=== MongoDB ORM
+https://mongoosejs.com/
 
 == Tech Stack
 
