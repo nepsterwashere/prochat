@@ -3,6 +3,7 @@ const typeDefs = `
     fullname: String
     userId: String
     content: String
+    date: String
   }
 
   type Query {

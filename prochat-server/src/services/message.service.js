@@ -1,29 +1,25 @@
 const { Message } = require("../database/schemas/message.schema")
-const { dayjs } = require("dayjs")
+const dayjs = require("dayjs")
 
 const findAllMessages = () => {
   return Message.find((_, results) => {
     return results
-      .map(({ userId, fullname, content }) => ({
+      .map(({ userId, fullname, content, date }) => ({
         userId,
         fullname,
-        content
+        content,
+        date: dayjs(date).format('YYYY-MM-DD')
       }))
   })
 }
 
 const deleteExpiredMessages = () => {
-  const messages = this.findAllMessages()
-  let counter = 0
+  const deleteDate = dayjs().format('YYYY-MM-DD')
 
-  messages.forEach(message => {
-    if (dayjs(message.date).isBefore(dayjs())) {
-      message.remove()
-      counter++
-    }
-  })
+  // TODO: Date comparison not working
+  Message.deleteMany({ date: { "$lt": deleteDate } })
 
-  console.log(`[Info]: removed ${counter} messages older than a day!`)
+  console.log(`[Info]: removed messages older than a day!`)
 }
 
 module.exports = {

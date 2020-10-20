@@ -1,3 +1,4 @@
+const dayjs = require('dayjs')
 const { PubSub } = require('graphql-yoga')
 const { Message } = require('../database/schemas/message.schema')
 const { findAllMessages } = require('../services/message.service')
@@ -18,7 +19,7 @@ const resolvers = {
         userId,
         fullname,
         content,
-        date: new Date()
+        date: dayjs()
       })
 
       await message.save()

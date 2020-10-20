@@ -3,6 +3,7 @@ const { connect } = require('./src/database/mongodb')
 const { resolvers, pubsub } = require('./src/graphql/resolver')
 const { typeDefs } = require('./src/graphql/typedefs')
 const { deleteJob } = require('./src/cron/deletejob')
+const { deleteExpiredMessages } = require('./src/services/message.service')
 require('dotenv').config()
 
 const server = new GraphQLServer({ typeDefs, resolvers, context: { pubsub } })
