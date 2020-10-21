@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, createRef } from 'react'
 import { useSubscription, useMutation } from '@apollo/client'
 import { ChatMessage } from '../../components/chat-message/chat-message'
 import { ChatFooter } from '../../components/chat-footer/chat-footer'
@@ -8,7 +8,7 @@ import { ChatHeader } from '../../components/chat-header/chat-header'
 import './chat.scss'
 
 export function Chat() {
-  let messagesEnd = React.createRef()
+  let messagesEnd = createRef()
 
   const { data } = useSubscription(MESSAGE_SUBSCRIPTION)
   const ctxUser = useUser()

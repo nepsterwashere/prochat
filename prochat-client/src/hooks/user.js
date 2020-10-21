@@ -1,3 +1,4 @@
+import { getVariableValues } from 'graphql/execution/values'
 import { useState, useEffect } from 'react'
 
 /*
@@ -7,8 +8,18 @@ export const useUser = () => {
   const [user, setUser] = useState({})
 
   useEffect(() => {
-    // TODO: Fetch user from http endpoint
     setUser({ userId: "pd07822", fullname: "Robin Grahl" })
+    // fetch(process.env.REACT_APP_AUTH_URL)
+    //   .then(res => {
+    //     const { givenname, surname, windowsaccountname } = res.data
+    //     setUser({
+    //       userId: windowsaccountname,
+    //       fullname: `${givenname} ${surname}`
+    //     })
+    //   })
+    //   .catch(err => {
+    //     console.error(err)
+    //   })
   }, [])
 
   return user
