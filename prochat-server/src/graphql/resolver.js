@@ -1,7 +1,7 @@
-const dayjs = require('dayjs')
-const { PubSub } = require('graphql-yoga')
-const { Message } = require('../database/schemas/message.schema')
-const { findAllMessages } = require('../services/message.service')
+import dayjs from 'dayjs'
+import { PubSub } from 'graphql-yoga'
+import Message from '../database/schemas/message.schema.js'
+import { findAllMessages } from '../services/message.service.js'
 
 const pubsub = new PubSub()
 const subscribers = []
@@ -49,7 +49,4 @@ const resolvers = {
   }
 }
 
-module.exports = {
-  pubsub,
-  resolvers
-}
+export { resolvers, pubsub }

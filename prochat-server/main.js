@@ -1,10 +1,9 @@
-const { GraphQLServer } = require('graphql-yoga')
-const { connect } = require('./src/database/mongodb')
-const { resolvers, pubsub } = require('./src/graphql/resolver')
-const { typeDefs } = require('./src/graphql/typedefs')
-const { deleteJob } = require('./src/cron/deletejob')
-const { deleteExpiredMessages } = require('./src/services/message.service')
-require('dotenv').config()
+import { GraphQLServer } from 'graphql-yoga'
+import { resolvers, pubsub } from './src/graphql/resolver.js'
+import { deleteJob } from './src/cron/deletejob.js'
+import connect from './src/database/mongodb.js'
+import typeDefs from './src/graphql/typedefs.js'
+import 'dotenv/config.js'
 
 const server = new GraphQLServer({ typeDefs, resolvers, context: { pubsub } })
 

@@ -1,10 +1,8 @@
-const { CronJob } = require('cron');
-const { deleteExpiredMessages } = require('../services/message.service');
+import { CronJob } from 'cron'
+import { deleteExpiredMessages } from '../services/message.service.js'
 
 const deleteJob = new CronJob('0 6 * * *', () => {
   deleteExpiredMessages()
 }, null, true, 'Europe/Berlin');
 
-module.exports = {
-  deleteJob
-}
+export { deleteJob }

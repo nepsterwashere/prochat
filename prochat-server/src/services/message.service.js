@@ -1,5 +1,5 @@
-const { Message } = require("../database/schemas/message.schema")
-const dayjs = require("dayjs")
+import Message from "../database/schemas/message.schema.js"
+import dayjs from "dayjs"
 
 const findAllMessages = () => {
   return Message.find((_, results) => {
@@ -16,13 +16,10 @@ const findAllMessages = () => {
 const deleteExpiredMessages = () => {
   const deleteDate = dayjs().format('YYYY-MM-DD')
 
-  // TODO: Date comparison not working
+  // FIXME: Date comparison not working
   Message.deleteMany({ date: { "$lt": deleteDate } })
 
   console.log(`[Info]: removed messages older than a day!`)
 }
 
-module.exports = {
-  findAllMessages,
-  deleteExpiredMessages
-}
+export { findAllMessages, deleteExpiredMessages }
