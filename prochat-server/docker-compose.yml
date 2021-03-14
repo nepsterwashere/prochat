@@ -1,0 +1,27 @@
+version: "3"
+services: 
+  prochat-server:
+    image: prochat-server
+    ports: 
+      - "8080:4000"
+    depends_on: 
+      - mongo
+    networks: 
+      - prochat-app
+  
+  mongo:
+    image: mongo:3.6.19-xenial
+    ports: 
+      - "27017:27017"
+    networks: 
+      - prochat-app
+    volumes:
+      - mongo-data:/data/db
+
+networks: 
+  prochat-app:
+    driver: bridge
+
+volumes:
+  mongo-data:
+    driver: local
