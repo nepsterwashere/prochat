@@ -49,4 +49,7 @@ const resolvers = {
   }
 }
 
-export { resolvers, pubsub }
+export { 
+  resolvers, 
+  pubsub 
+}

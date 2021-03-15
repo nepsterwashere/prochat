@@ -1,4 +1,3 @@
-import { getVariableValues } from 'graphql/execution/values'
 import { useState, useEffect } from 'react'
 
 /*

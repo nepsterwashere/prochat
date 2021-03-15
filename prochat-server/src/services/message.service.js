@@ -22,4 +22,7 @@ const deleteExpiredMessages = () => {
   console.log(`[Info]: removed messages older than a day!`)
 }
 
-export { findAllMessages, deleteExpiredMessages }
+export { 
+  findAllMessages,
+  deleteExpiredMessages 
+}

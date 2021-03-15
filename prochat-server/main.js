@@ -11,7 +11,7 @@ function bootstrap() {
   connectToDB()
   deleteJob.start()
   server.start(({ port }) => {
-    console.log(`Server started on http://localhost:${port}`)
+    console.log(`Server started on port ${port}`)
   })
 }
 
