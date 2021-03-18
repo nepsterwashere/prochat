@@ -13,7 +13,7 @@ RUN npm install
 COPY . .
 
 # App environment vars
-ENV port=4000 DATABASE_URL=mongodb://mongo:27017/chat
+ENV PORT=4000 DATABASE_URL=mongodb://mongo:27017/chat
 
 EXPOSE 4000
 CMD ["npm", "start"]
