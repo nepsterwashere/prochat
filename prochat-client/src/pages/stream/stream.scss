@@ -1,0 +1,15 @@
+.pro-chat {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+
+    &--video {
+        flex-grow: 8;
+        min-width: 200px
+    }
+
+    &--chat {
+        flex-grow: 4;
+        height: 100vh;
+    }
+}
