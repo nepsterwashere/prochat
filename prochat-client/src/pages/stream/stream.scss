@@ -1,0 +1,20 @@
+.pro-chat {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+
+    &--video {
+        padding: 16px;
+        flex-grow: 6;
+
+        &-heading {
+            font-weight: 800;
+            color: #00616C
+        }
+    }
+
+    &--chat {
+        flex-grow: 1;
+        height: 100vh;
+    }
+}

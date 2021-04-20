@@ -5,6 +5,7 @@ import { ApolloClient, InMemoryCache, ApolloProvider } from '@apollo/client';
 import { Chat } from './container/chat/chat';
 import { WebSocketLink } from '@apollo/client/link/ws';
 import './index.scss';
+import Stream from './pages/stream/stream';
 
 const wsLink = new WebSocketLink({
   uri: process.env.REACT_APP_GRAPHQL_WS_URL,
@@ -22,7 +23,7 @@ const client = new ApolloClient({
 ReactDOM.render(
   <React.StrictMode>
     <ApolloProvider client={client}>
-      <Chat />
+      <Stream />
     </ApolloProvider>
   </React.StrictMode>,
   document.getElementById('root')
