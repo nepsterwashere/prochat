@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <base href="/" /> <!-- sets the base href -->
     <meta charset="utf-8" />
     <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -10,34 +11,61 @@
       content="Web site created using create-react-app"
     />
     <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
-    <!--
-      manifest.json provides metadata used when your web app is installed on a
-      user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
-    -->
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
-    <!--
-      Notice the use of %PUBLIC_URL% in the tags above.
-      It will be replaced with the URL of the `public` folder during the build.
-      Only files inside the `public` folder can be referenced from the HTML.
 
-      Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
-      work correctly both with client-side routing and a non-root public URL.
-      Learn how to configure a non-root public URL by running `npm run build`.
-    -->
+    <!-- Styling -->
+
+    <link href='/css/video-js.css' rel='stylesheet'>
+    <link href='/css/bootstrap.min.css' rel='stylesheet'>
+    <link href='/css/s-chat-support.css' rel='stylesheet'>
+    <link href='/css/style.css' rel='stylesheet'>
+
     <title>React App</title>
   </head>
   <body>
+    <script>
+      window.userId = "EXAMPLEID"
+      window.username = "John Doe"
+    </script>
     <noscript>You need to enable JavaScript to run this app.</noscript>
-    <div id="root"></div>
-    <!--
-      This HTML file is a template.
-      If you open it directly in the browser, you will see an empty page.
+    <div class="content">
+      <div class="row">
+        <div class="col-md-9">
+          <h2 class='header-text'>
+            Community Day Live-Stream
+          </h2>
+          <div class="video-container">
+            <video class='video-js vjs-default-skin vjs-big-play-centered' poster='img/poster_sm.png' id=video01 width=100%
+              controls>
+              <source src='video/stream1/video.m3u8' type='application/x-mpegURL'>
+            </video>
+            <br />
+            <div class='alert custom-alert'>
+              <strong>Info:</strong> Diese Veranstaltung ist bereits beendet.
+            </div>
+          </div>
+        </div>
+        <div class=".col-md-3">
+          <div class="jumbotron chat-jumbotron">
+            <div id="root"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+		<script src='/js/video.js'></script>
+		<script src='/js/s-chat-support.js'></script>
+		<script>
+			var player = videojs('video01', { liveui: true, fluid: true });
 
-      You can add webfonts, meta tags, or analytics to this file.
-      The build step will place the bundled scripts into the <body> tag.
-
-      To begin the development, run `npm start` or `yarn start`.
-      To create a production bundle, use `npm run build` or `yarn build`.
-    -->
+			sChat.init('init', {
+                ssl: true,
+                welcomeMessage: 'Herzlich willkommen, Jan-Nikolas Völker! Hier können Sie Ihre Fragen eingeben.',
+                hostName: 'hostname.com',
+                labels: {
+                    sendPlaceholder: 'Ihre Nachricht...',
+                    headerTitle: 'Herzlich willkommen!'
+                }
+            });
+		</script>
   </body>
 </html>

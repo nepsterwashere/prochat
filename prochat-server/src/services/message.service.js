@@ -14,12 +14,9 @@ const findAllMessages = () => {
 }
 
 const deleteExpiredMessages = () => {
-  const deleteDate = dayjs().format('YYYY-MM-DD')
+  Message.deleteMany({ date: { "$lt": new Date() } })
 
-  // FIXME: Date comparison not working
-  Message.deleteMany({ date: { "$lt": deleteDate } })
-
-  console.log(`[Info]: removed messages older than a day!`)
+  console.log("[Info]: removed all messages older than a day!")
 }
 
 export { 

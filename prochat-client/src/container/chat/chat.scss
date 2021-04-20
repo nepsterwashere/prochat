@@ -5,6 +5,7 @@
   height: 100%;
 
   &__messages {
+    border-left: 1px solid lightgray;
     height:  calc(100% - 64px);
     overflow-y: scroll;
   }
