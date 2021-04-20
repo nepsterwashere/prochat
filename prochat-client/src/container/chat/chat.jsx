@@ -3,7 +3,7 @@ import { useSubscription, useMutation } from '@apollo/client'
 import { ChatMessage } from '../../components/chat-message/chat-message'
 import { ChatFooter } from '../../components/chat-footer/chat-footer'
 import { MESSAGE_SUBSCRIPTION, POST_MESSAGE } from '../../graphql/message-queries'
-import { useUser } from '../../hooks/user'
+import { useUser } from '../../hooks/user.hook'
 import { ChatHeader } from '../../components/chat-header/chat-header'
 import './chat.scss'
 
