@@ -16,3 +16,23 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.MuiInput-underline:before {
+    border-bottom: 1px solid white !important;
+}
+
+.MuiInput-underline::after {
+    border-bottom: 1px solid white !important;
+}
+
+.MuiInputLabel-formControl {
+    color: white !important;
+}
+
+.MuiButton-label {
+    color: white !important;
+}
+
+.MuiInputBase-input {
+    color: white !important
+}

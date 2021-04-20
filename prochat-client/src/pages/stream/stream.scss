@@ -4,12 +4,17 @@
     justify-content: space-between;
 
     &--video {
-        flex-grow: 8;
-        min-width: 200px
+        padding: 16px;
+        flex-grow: 6;
+
+        &-heading {
+            font-weight: 800;
+            color: #00616C
+        }
     }
 
     &--chat {
-        flex-grow: 4;
+        flex-grow: 1;
         height: 100vh;
     }
 }
