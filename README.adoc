@@ -1,21 +1,24 @@
 = ProChat Client & Server Monorepo
 
-== Ressources
-
-=== UI Library
-https://material-ui.com/
-
-=== Graphql Client Library
-https://www.apollographql.com/docs/react/
-
-=== Graphql Server Library
-https://github.com/prisma-labs/graphql-yoga
-
-=== MongoDB ORM
-https://mongoosejs.com/
-
-== Tech Stack
+== 🚀 Tech Stack (MERN)
 
 * React (Client)
-* Node (Server)
+* Node & Express (Server)
 * MongoDB (Database)
+
+== Libraries
+
+=== 🎨 UI Library
+https://material-ui.com/
+
+=== 💻 Graphql Client Library
+https://www.apollographql.com/docs/react/
+
+=== 🖥 Graphql Server Library
+https://github.com/prisma-labs/graphql-yoga
+
+=== 📚 MongoDB ORM
+https://mongoosejs.com/
+
+=== 🎬 Video JS
+https://docs.videojs.com/
