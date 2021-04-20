@@ -3,16 +3,14 @@ import videojs from 'video.js'
 import './videojs.scss'
 
 export default function VideoJS() {
-    const [player, setPlayer] = useState()
-    const videoNode = ''
-    const videoJsOptions = {
-        autoplay: true,
-        controls: true,
-        sources: [{
+    const playerRef = usePlayer({
+        src: {
             src: `${process.env.REACT_APP_VIDEO_URL}`,
-            type: `${process.env.REACT_APP_VIDEO_TYPE}`
-        }]
-    }
+            type: `${process.env.REACT_APP_VIDEO_TYPE}`,
+        },
+        controls: true, 
+        autoplay: false
+    });
 
     // instantiate Video.js
     useEffect(() => {

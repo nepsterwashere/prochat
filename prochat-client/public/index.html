@@ -22,50 +22,14 @@
 
     <title>React App</title>
   </head>
+  
   <body>
     <script>
       window.userId = "EXAMPLEID"
       window.username = "John Doe"
     </script>
     <noscript>You need to enable JavaScript to run this app.</noscript>
-    <div class="content">
-      <div class="row">
-        <div class="col-md-9">
-          <h2 class='header-text'>
-            Community Day Live-Stream
-          </h2>
-          <div class="video-container">
-            <video class='video-js vjs-default-skin vjs-big-play-centered' poster='img/poster_sm.png' id=video01 width=100%
-              controls>
-              <source src='video/stream1/video.m3u8' type='application/x-mpegURL'>
-            </video>
-            <br />
-            <div class='alert custom-alert'>
-              <strong>Info:</strong> Diese Veranstaltung ist bereits beendet.
-            </div>
-          </div>
-        </div>
-        <div class=".col-md-3">
-          <div class="jumbotron chat-jumbotron">
-            <div id="root"></div>
-          </div>
-        </div>
-      </div>
-    </div>
-		<script src='/js/video.js'></script>
-		<script src='/js/s-chat-support.js'></script>
-		<script>
-			var player = videojs('video01', { liveui: true, fluid: true });
-
-			sChat.init('init', {
-                ssl: true,
-                welcomeMessage: 'Herzlich willkommen, Jan-Nikolas Völker! Hier können Sie Ihre Fragen eingeben.',
-                hostName: 'hostname.com',
-                labels: {
-                    sendPlaceholder: 'Ihre Nachricht...',
-                    headerTitle: 'Herzlich willkommen!'
-                }
-            });
-		</script>
+    <div id="root"></div>
   </body>
-</html>
+  
+  </html>
