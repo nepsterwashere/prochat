@@ -5,27 +5,34 @@
   <!-- sets the base href -->
   <base href="/" />
   <meta charset="utf-8" />
-  <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+  <link rel="icon" href="%PUBLIC_URL%/provi.jpeg" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="theme-color" content="#000000" />
   <meta name="description" content="Web site created using create-react-app" />
-  <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
   <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
 
   <!-- Styling -->
   <link href='/css/video-js.css' rel='stylesheet'>
   <link href='/css/s-chat-support.css' rel='stylesheet'>
 
-  <title>React App</title>
+  <title>Provinzial Live-Stream</title>
 </head>
 
 <body>
-  <script>
-    window.userId = "EXAMPLEID"
-    window.username = "John Doe"
-  </script>
   <noscript>You need to enable JavaScript to run this app.</noscript>
   <div id="root"></div>
+  <script src="js/s-chat-support.js"></script>
+  <script>
+      sChat.init('init', {
+        ssl: true,
+        welcomeMessage: 'Herzlich willkommen, Jan-Nikolas Völker! Hier können Sie Ihre Fragen eingeben.',
+        hostName: 'hostname.com',
+        labels: {
+          sendPlaceholder: 'Ihre Nachricht...',
+          headerTitle: 'Herzlich willkommen!'
+        }
+      })
+  </script>
 </body>
 
 </html>

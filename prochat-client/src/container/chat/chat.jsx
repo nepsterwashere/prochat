@@ -6,17 +6,30 @@ import { MESSAGE_SUBSCRIPTION, POST_MESSAGE } from '../../graphql/message-querie
 import { useUser } from '../../hooks/user.hook'
 import { ChatHeader } from '../../components/chat-header/chat-header'
 import './chat.scss'
+import ChatLogin from '../../components/chat-login/chat-login'
 
 export function Chat() {
   let messagesEnd = createRef()
 
   const { data } = useSubscription(MESSAGE_SUBSCRIPTION)
-  const ctxUser = useUser()
+  const [user, setUser] = useUser()
+
   const [postMessage] = useMutation(POST_MESSAGE)
 
   useEffect(() => {
-    messagesEnd.scrollIntoView()
+    if (user) messagesEnd.scrollIntoView()
   })
+
+  const handleLogin = (user) => {
+    const newUser = {
+      fullname: `${user.firstName} ${user.lastName}`,
+      userId: `${user.firstName}${user.lastName}` + Math.random()
+    } 
+
+    setUser(newUser)
+
+    localStorage.setItem("user", JSON.stringify(newUser))
+  }
 
   const submitMessage = (message) => {
     postMessage({
@@ -27,15 +40,23 @@ export function Chat() {
   return (
     <div className="chat">
       <ChatHeader />
-      <div id="chat__messages" className="chat__messages">
-        {data && data.messages.map(({ userId, fullname, content }) => (
-          <ChatMessage fullname={fullname} content={content} isOwn={ctxUser.userId === userId} />
-        ))}
-        <div style={{ float: "left", clear: "both" }}
-          ref={(el) => { messagesEnd = el }}>
+      { user ? (
+        <React.Fragment>
+          <div id="chat__messages" className="chat__messages">
+            {data && data.messages.map(({ userId, fullname, content }) => (
+              <ChatMessage fullname={fullname} content={content} isOwn={user.userId === userId} />
+            ))}
+            <div style={{ float: "left", clear: "both" }}
+              ref={(el) => { messagesEnd = el }}>
+            </div>
+          </div>
+          <ChatFooter user={user} postMessage={(message) => submitMessage(message)} />
+        </React.Fragment>
+      ) : (
+        <div className="chat__login">
+          <ChatLogin handleLogin={handleLogin} />
         </div>
-      </div>
-      <ChatFooter user={ctxUser} postMessage={(message) => submitMessage(message)} />
+      )}
     </div>
   )
 }

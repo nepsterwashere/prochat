@@ -8,7 +8,7 @@ export function ChatHeader() {
       <Grid container alignItems="center" spacing={2}>
         <Grid item>
           <span className="chat-header__title">
-            Livestream Chat
+            Chat
           </span>
         </Grid>
       </Grid>

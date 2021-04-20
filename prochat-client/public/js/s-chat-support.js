@@ -137,7 +137,8 @@
             // ddp init
             var ddp = new sChatDDPClient(connectionOptions);
             // random userSessionId generator
-            var userSessionId = window.user;
+            var user = JSON.parse(localStorage.user)
+            var userSessionId = `${user.fullname} [${user.userId}]`;
             var submitMsg = function (e) {
                 var input = sChatBox().submitInput;
                 var key = e.keyCode || e.which;

@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import videojs from 'video.js';
 
 export default function usePlayer({ src, controls, autoplay }) {
@@ -9,23 +9,17 @@ export default function usePlayer({ src, controls, autoplay }) {
         fluid: true,
         liveui: true,
         preload: 'auto',
-        html5: {
-            hls: {
-                enableLowInitialPlaylist: true,
-                smoothQualityChange: true,
-                overrideNative: true,
-            },
-        },
+        controls,
+        autoplay,
+        sources: [src],
     };
 
     useEffect(() => {
         const vjsPlayer = videojs(
             videoRef.current, {
-            ...options,
-            controls,
-            autoplay,
-            sources: [src],
+            ...options
         });
+
         setPlayer(vjsPlayer);
 
         return function cleanup() {
@@ -37,7 +31,7 @@ export default function usePlayer({ src, controls, autoplay }) {
 
     useEffect(() => {
         if (player !== null) {
-            player.src({ src });
+            player.src(src);
         }
     }, [src]);
 

@@ -9,7 +9,7 @@ export default function VideoJS() {
             type: `${process.env.REACT_APP_VIDEO_TYPE}`,
         },
         controls: true, 
-        autoplay: true
+        autoplay: false
     });
 
     return (

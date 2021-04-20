@@ -1,14 +1,12 @@
 import { useEffect, useState } from 'react'
 
 export const useUser = () => {
-  const [user, setUser] = useState({})
+  const [user, setUser] = useState(null)
 
   useEffect(() => {
-    setUser({
-      userId: window.userId,
-      fullname: window.username
-    })
+    const user = localStorage.getItem("user")
+    if (user) setUser(JSON.parse(user))
   }, [])
 
-  return user
+  return [user, setUser]
 }

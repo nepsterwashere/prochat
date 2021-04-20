@@ -2,7 +2,6 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import * as serviceWorker from './serviceWorker';
 import { ApolloClient, InMemoryCache, ApolloProvider } from '@apollo/client';
-import { Chat } from './container/chat/chat';
 import { WebSocketLink } from '@apollo/client/link/ws';
 import './index.scss';
 import Stream from './pages/stream/stream';

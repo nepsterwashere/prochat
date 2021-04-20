@@ -1,0 +1,18 @@
+.chat-login {
+    padding: 16px;
+    height: 100%;
+    background-color: #00616C;
+    display: flex;
+
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: center;
+
+    &__heading {
+        color: white
+    }
+
+    &__submit {
+        margin: 20px 0;
+    }
+}

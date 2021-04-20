@@ -32,9 +32,6 @@ export function ChatFooter({ user, postMessage }) {
           <span className="chat-footer__avatar-username">
             {user.fullname}
           </span>
-          <span className="chat-footer__avatar-userid">
-            ({user.userId})
-          </span>
         </Grid>
       </Grid>
       <TextField label="Nachricht"
