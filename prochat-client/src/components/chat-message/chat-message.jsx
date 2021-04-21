@@ -16,7 +16,7 @@ export function ChatMessage({ fullname, content, isOwn }) {
             </Grid>
             <Grid item>
               <span className="chat-message__username">
-                {fullname}
+                {fullname.length > 14 ? fullname.substr(0, 14) + "..." : fullname.substr(0, 14)}
               </span>
             </Grid>
           </Grid>
